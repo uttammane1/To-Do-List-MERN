@@ -1,3 +1,4 @@
+const cors = require("cors")
 const express = require("express");
 const connectDb = require("./config/db");
 const usersRoutes = require("./Routers/users.routes");
@@ -8,7 +9,7 @@ const PORT = process.env.PORT;
 
 
 const app = express();
-
+app.use(cors())
 app.use(express.json());
 app.use("/users", usersRoutes);
 app.use("/todos", todoRoutes);
