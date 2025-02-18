@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post("YOUR_BACKEND_URL/login", { email, password });
+      const res = await axios.post("https://to-do-list-mern-q28z.onrender.com/users/login", { email, password });
       setUser(res.data.user);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/todos");
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
     try {
-      await axios.post("YOUR_BACKEND_URL/register", { email, password });
+      await axios.post("https://to-do-list-mern-q28z.onrender.com/users/register", { email, password });
       navigate("/");
     } catch (error) {
       alert("Registration failed");
